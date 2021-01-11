@@ -1,5 +1,6 @@
 package pgdp.register;
 
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class PenguinRegister {
@@ -10,10 +11,10 @@ public class PenguinRegister {
     private Penguin penguin = null;
     private PenguinRegister[] children = new PenguinRegister[NUM_ALPHABET];
 
-
+    //Method to crete a tree with a penguin with certain name
     public PenguinRegister put(String name, Penguin penguin){
-        int constant = 0;
-        int i = 0;
+        int constant = 0;//Constant for the loop
+        int i = 0;//This constants serve as index of the charAt of the name
         int j = 1;
         int k = 2;
         int l = 3;
@@ -21,62 +22,70 @@ public class PenguinRegister {
         int n = 5;
         int o = 6;
         int p = 7;
+        int q = 8;
         while (constant < name.length()){
-                if(constant == 0 && this.children[name.charAt(i)-65]== null) {
-                    this.children[name.charAt(i) - 65] = new PenguinRegister();
-                    if (constant == name.length() - 1) {
-                        this.children[name.charAt(i) - 65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65];
-                    }
+            if(constant == 0 && this.children[name.charAt(i)-65]== null) {
+                this.children[name.charAt(i) - 65] = new PenguinRegister();
+                if (constant == name.length() - 1) {
+                    this.children[name.charAt(i) - 65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65];
                 }
-                if(constant == 1 && this.children[name.charAt(i)-65].children[name.charAt(j)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65] = new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65];
-                    }
+            }
+            else if(constant == 1 && this.children[name.charAt(i)-65].children[name.charAt(j)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65] = new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65];
                 }
-                if(constant == 2 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65]= new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65];
-                    }
+            }
+            else if(constant == 2 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65]= new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65];
                 }
-                if(constant == 3 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65] = new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65];
-                    }
+            }
+            else if(constant == 3 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65] = new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65];
                 }
-                if(constant == 4 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65] = new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65];
-                    }
+            }
+            else if(constant == 4 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65] = new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65];
                 }
-                if(constant == 5 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65]= new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65];
-                    }
+            }
+            else if(constant == 5 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65]= new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65];
                 }
-                if(constant == 6 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65]= new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65];
-                    }
+            }
+            else if(constant == 6 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65]= new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65];
                 }
-                if(constant == 7 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65]== null){
-                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65]= new PenguinRegister();
-                    if (constant == name.length()-1){
-                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].penguin = penguin;
-                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65];
-                    }
+            }
+            else if(constant == 7 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65]== null){
+                this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65]= new PenguinRegister();
+                if (constant == name.length()-1){
+                    this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65];
+                }
+            }
+            else if(constant == 8 && this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].children[name.charAt(q)-65] == null) {
+                this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65].children[name.charAt(q)-65] = new PenguinRegister();
+                if (constant == name.length() - 1) {
+                    this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65].children[name.charAt(q)-65].penguin = penguin;
+                    return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65].children[name.charAt(q)-65];
+                }
             }else{
                 if(constant == 0){
                     if (constant == name.length() - 1) {
@@ -84,46 +93,52 @@ public class PenguinRegister {
                         return this.children[name.charAt(i) - 65];
                     }
                 }
-                if(constant == 1){
+                else if(constant == 1){
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65];
                     }
                 }
-                if(constant == 2) {
+                else if(constant == 2) {
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65];
                     }
                 }
-                if(constant == 3) {
+                else if(constant == 3) {
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65];
                     }
                 }
-                if(constant == 4) {
+                else if(constant == 4) {
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65];
                     }
                 }
-                if(constant == 5){
+                else if(constant == 5){
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65];
                     }
                 }
-                if(constant == 6) {
+                else if(constant == 6) {
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65];
                     }
                 }
-                if(constant == 7) {
+                else if(constant == 7) {
                     if (constant == name.length()-1){
                         this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].penguin = penguin;
                         return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65];
+                    }
+                }
+                else if(constant == 8) {
+                    if (constant == name.length()-1){
+                        this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].children[name.charAt(q)-65].penguin = penguin;
+                        return this.children[name.charAt(i) - 65].children[name.charAt(j) - 65].children[name.charAt(k) - 65].children[name.charAt(l) - 65].children[name.charAt(m) - 65].children[name.charAt(n) - 65].children[name.charAt(o) - 65].children[name.charAt(p) - 65].children[name.charAt(q)-65];
                     }
                 }
             }
@@ -132,7 +147,7 @@ public class PenguinRegister {
         return null;
     }
 
-
+    //More or less the same principle of the put method
     public Penguin get(String name){
         int constant = name.length();
         int i = 0;
@@ -146,7 +161,7 @@ public class PenguinRegister {
         if(constant == 0 ) {
             return null;
         }
-        if (this.children[name.charAt(i)-65] == null) {
+        if (this.children[name.charAt(i)-65] == null) {//Condition to see if this children exists
             return null;
         }
         if(constant == 1){
@@ -209,10 +224,19 @@ public class PenguinRegister {
             }else
                 return null;
         }
+        if(this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65] == null) {
+            return null;
+        }
+        if(constant == 8){
+            if(this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].penguin != null){
+                return this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].penguin;
+            }else
+                return null;
+        }
 
     return null;}
 
-
+    //Again the same idea as the put method,very similar to the get method
     public boolean contains (String name){
         int constant = name.length();
         int i = 0;
@@ -289,12 +313,20 @@ public class PenguinRegister {
             }else
                 return false;
         }
+        if(this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65] == null){
+            return false;
+        }
+        if(constant == 8){
+            if(this.children[name.charAt(i)-65].children[name.charAt(j)-65].children[name.charAt(k)-65].children[name.charAt(l)-65].children[name.charAt(m)-65].children[name.charAt(n)-65].children[name.charAt(o)-65].children[name.charAt(p)-65].penguin != null){
+                return true;
+            }else
+                return false;
+        }
 
         return false;
     }
 
-
-    public int size(){
+    public int size(){//Recursive method that finds the size of a tree
         PenguinRegister tree = this;
         int size = 0;
         if (tree.penguin != null){
@@ -308,18 +340,13 @@ public class PenguinRegister {
         return size;
     }
 
-
-    private static boolean isFound = false;
-
-    private String findNames(Penguin penguin){
-        isFound = false;
+    private String findNames(Penguin penguin){//Auxiliary method(recursive) to the findName method
         int j = 1;
         String name = "";
-        for (int i = 0; i < NUM_ALPHABET && isFound == false; i++,j++) {
+        for (int i = 0; i < NUM_ALPHABET && !name.contains(" "); i++,j++) {//The " " represents in the name if the name was found
             if (this.children[i] != null){
                 if (this.children[i].penguin == penguin) {
-                    isFound = true;
-                    return Character.toString(i+65);
+                    return Character.toString(i+65)+" ";
                 }else{
                     name =  Character.toString(i+65) + this.children[i].findNames(penguin);
                 }
@@ -339,7 +366,7 @@ public class PenguinRegister {
         if (findNames(penguin) == "" ){
             return null;
         }else
-            return findNames(penguin);
+            return findNames(penguin).trim();//Adjust the name
     }
 
 
@@ -357,91 +384,70 @@ public class PenguinRegister {
             if (this.children[name.charAt(0)-65] == null){
                 return null;
            }
-        return this.children[name.charAt(0)-65].remove(name.substring(1));
+        return this.children[name.charAt(0)-65].remove(name.substring(1));//Recursion that removes each letter each time
     }
 
-    private static String namei = "";
-//    public EntryList getAll(){
-//        EntryList list = new EntryList();
-//        for (int i = 0; i < NUM_ALPHABET; i++) {
-//            if (this.children[i] != null){
-//                if (this.children[i].penguin != null){
-//                    Character numberToChar = (char) (i +65);
-//                    name = name + numberToChar;
-//                    list.add(new Entry(name,this.children[i].penguin));
-//                    this.children[i].getAll();
-//                }
-//                else{
-//                    Character numberToChar = (char) (i +65);
-//                    name = name + numberToChar;
-//                    this.children[i].getAll();
-//                }
-//            }
-//        }
-//        if (this.size() == list.size()){
-//            return list;
-//        }
-//        return list;
-//    }
-    static EntryList list = new EntryList();
+    //private static final constants to help the following methods
+    private static final EntryList list = new EntryList();
+    private static final StringBuilder stringsName = new StringBuilder();
 
-    private EntryList getAllHelp(){
-        isFound = false;
+    private EntryList getAllHelp(){//Recursive auxiliary method
         int j = 1;
-        for (int i = 0; i < NUM_ALPHABET && isFound == false; i++,j++) {
+        for (int i = 0; i < NUM_ALPHABET ; i++,j++) {
             if (this.children[i] != null){
                 if (this.children[i].penguin != null) {
-                    namei = namei + Character.toString(i+65);
-                    list.add(new Entry(namei,this.children[i].penguin));
+                    stringsName.append(Character.toString(i+65));
+                    list.add(new Entry(stringsName.toString(),this.children[i].penguin));
+                    stringsName.deleteCharAt(stringsName.indexOf(Character.toString(i+65)));
+
                 }else{
-                    namei =  Character.toString(i+65) ;
+                    stringsName.append(Character.toString(i+65));
                     this.children[i].getAllHelp();
                 }
             }
-            if (j == NUM_ALPHABET &&  namei.length()>= 2){
-                namei = namei.substring(0,namei.length()-1);
-                isFound = false;
+        }
+        return list;
+    }
+    private EntryList check(EntryList list){//Method that checks the name and the description of the penguin
+        for (int i = 0; i < list.size(); i++) {
+            int until = list.get(i).getPenguin().getDescription().indexOf(" ");
+            if(!list.get(i).getPenguin().getDescription().contains(list.get(i).getName())){
+                if(!list.list.contains(list.get(i).getName())){
+                    list.get(i).setName(list.get(i).getPenguin().getDescription().substring(0,until));
+                }
+
             }
         }
         return list;
     }
 
-    public EntryList getAll(){
-        EntryList newList;
-        newList = this.getAllHelp();
-//        for (int i = 0; i < list.size()-i; i++) {
-//            list.remove(i);
-//        }
-        return newList;
+    public EntryList getAll(){//Simply returns both auxiliary methods combined
+        return check(getAllHelp());
     }
 
-    public EntryList getAllWithPrefix(String prefix){
-        EntryList result = new EntryList();
-        int j = 0;
-        int prefixLength = prefix.length();
-        for (int i = 0; i < NUM_ALPHABET; i++) {
-            if (this.children[i] != null){
-                if(prefixLength != 0){
-                if (((char)(i+65)) == prefix.charAt(0)){
-                    if(this.children[i].penguin != null){
-                        result.add(new Entry(findName(this.children[i].penguin),this.children[i].penguin));
-                    }
-                    if (prefix.length()>1){
-                        return this.children[i].getAllWithPrefix(prefix.substring(1));
-                    }
-                }
-            }
+    public EntryList getAllWithPrefix(String prefix){//Method is not directly recursive, but calls a getAll that calls a recursive method
+        EntryList result = getAll();
+        EntryList finalResult = new EntryList();
+        for (int i = 0; i < result.size()-1; i++) {
+            if (result.get(i).getName().startsWith(prefix)){
+                finalResult.add(result.get(i));
             }
         }
-        return result;
+        return finalResult;
     }
 
-    public EntryList getAllMatching(String pattern){
-        return null;
+    public EntryList getAllMatching(String pattern){//Similar idea as the getAllWithPrefix method
+        EntryList result = getAll();
+        EntryList finalResult = new EntryList();
+        for (int i = 0; i < result.size()-1; i++) {
+            if(result.get(i).getName().matches(pattern)){
+                finalResult.add(result.get(i));
+            }
+        }
+        return finalResult;
     }
 
 
-    //Lembrete: Aumentar o range em que as funcoes put, get e contains conseguem alcancar
     public static void main(String[] args) {
         PenguinRegister register = new PenguinRegister();
 
